@@ -50,8 +50,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 
 # apt-get update is called by node setup script already
-RUN apt-get install --no-install-recommends -y \
-    nodejs \
+RUN apt-get install --no-install-recommends -y nodejs
 
 # Configure FPM to run properly on docker
 RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 10M/" /etc/php/7.3/fpm/php.ini
@@ -70,7 +69,3 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Copy composer from already built image
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Install composer parallel install plugin
-RUN composer global require hirak/prestissimo
-
