@@ -46,12 +46,6 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php7.3-xmlwriter \
     php7.3-zip
 
-# Add node 10.x repository
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-
-# apt-get update is called by node setup script already
-RUN apt-get install --no-install-recommends -y nodejs
-
 # Configure FPM to run properly on docker
 RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 10M/" /etc/php/7.3/fpm/php.ini
 RUN sed -i "s/post_max_size = .*/post_max_size = 12M/" /etc/php/7.3/fpm/php.ini
