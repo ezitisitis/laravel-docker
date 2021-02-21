@@ -1,0 +1,14 @@
+{
+    "name": "ezitis/laravel-docker",
+    "description": "Docker and docker-compose files for laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marks Ezitis Bogdanovs",
+            "email": "git@ezitisitis.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
