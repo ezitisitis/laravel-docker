@@ -45,6 +45,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php7.3-xmlreader \
     php7.3-xmlwriter \
     php7.3-zip
+    php7.3-bcmath
 
 # Configure FPM to run properly on docker
 RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 10M/" /etc/php/7.3/fpm/php.ini
