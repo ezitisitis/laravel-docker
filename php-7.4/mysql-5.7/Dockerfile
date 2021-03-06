@@ -44,7 +44,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php7.4-xml \
     php7.4-xmlreader \
     php7.4-xmlwriter \
-    php7.4-zip
+    php7.4-zip \
     php7.4-bcmath
 
 # Configure FPM to run properly on docker
