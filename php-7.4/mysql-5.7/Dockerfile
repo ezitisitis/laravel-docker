@@ -45,7 +45,12 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php7.4-xmlreader \
     php7.4-xmlwriter \
     php7.4-zip \
-    php7.4-bcmath
+    php7.4-bcmath \
+    language-pack-en-base \
+    language-pack-ru-base \
+    language-pack-lv-base
+
+RUN locale-gen
 
 # Configure FPM to run properly on docker
 RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 10M/" /etc/php/7.4/fpm/php.ini
