@@ -53,8 +53,8 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
 RUN locale-gen
 
 # Configure FPM to run properly on docker
-RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 10M/" /etc/php/7.3/fpm/php.ini
-RUN sed -i "s/post_max_size = .*/post_max_size = 12M/" /etc/php/7.3/fpm/php.ini
+RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 50M/" /etc/php/7.3/fpm/php.ini
+RUN sed -i "s/post_max_size = .*/post_max_size = 50M/" /etc/php/7.3/fpm/php.ini
 RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.3/fpm/php.ini
 
 RUN sed -i -e "s/pid =.*/pid = \/var\/run\/php7.3-fpm.pid/" /etc/php/7.3/fpm/php-fpm.conf
