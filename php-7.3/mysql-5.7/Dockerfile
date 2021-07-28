@@ -46,6 +46,7 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php7.3-xmlwriter \
     php7.3-zip \
     php7.3-bcmath \
+    php7.3-xdebug \
     language-pack-en-base \
     language-pack-ru-base \
     language-pack-lv-base
