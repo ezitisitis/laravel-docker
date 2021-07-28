@@ -54,8 +54,8 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
 RUN locale-gen
 
 # Configure FPM to run properly on docker
-RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 10M/" /etc/php/7.4/fpm/php.ini
-RUN sed -i "s/post_max_size = .*/post_max_size = 12M/" /etc/php/7.4/fpm/php.ini
+RUN sed -i "s/upload_max_filesize = .*/upload_max_filesize = 50M/" /etc/php/7.4/fpm/php.ini
+RUN sed -i "s/post_max_size = .*/post_max_size = 50M/" /etc/php/7.4/fpm/php.ini
 RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.4/fpm/php.ini
 
 RUN sed -i -e "s/pid =.*/pid = \/var\/run\/php7.4-fpm.pid/" /etc/php/7.4/fpm/php-fpm.conf
@@ -70,3 +70,5 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Copy composer from already built image
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+COPY server-bootstrap.sh /usr/local/bin/server-bootstrap
