@@ -71,4 +71,4 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 # Copy composer from already built image
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-COPY ../init/server-bootstrap.sh /usr/local/bin/server-bootstrap
+COPY server-bootstrap.sh /usr/local/bin/server-bootstrap
