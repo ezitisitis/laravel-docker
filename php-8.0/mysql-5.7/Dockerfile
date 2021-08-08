@@ -17,6 +17,9 @@ RUN apt-get update && \
     apt-transport-https \
     software-properties-common
 
+RUN apt install software-properties-common && \
+    add-apt-repository ppa:ondrej/php
+
 # Install git, php, e.t.c.
 RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     openssh-client \
