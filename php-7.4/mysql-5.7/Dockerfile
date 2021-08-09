@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /var/www
 
 # Prepare to get apt-repository with php7.4
 # Repository is added cause Ubuntu 18.04 don't have php7.4 in its package.
