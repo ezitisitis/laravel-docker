@@ -49,6 +49,8 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.0-bcmath \
     php8.0-xdebug
 
+RUN mkdir -p /run/php-fpm/
+
 # Supress composer root warning
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
