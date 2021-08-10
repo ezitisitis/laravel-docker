@@ -59,3 +59,4 @@ COPY server-bootstrap /usr/local/bin/server-bootstrap
 COPY php.ini /etc/php/8.0/cli/conf.d/99-app.ini
 COPY php-pfm-pool.conf /etc/php/8.0/fpm/pool.d/www.conf
 RUN chmod +x /usr/local/bin/server-bootstrap
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/server-bootstrap"]
