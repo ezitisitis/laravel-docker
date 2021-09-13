@@ -47,7 +47,10 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.0-xmlwriter \
     php8.0-zip \
     php8.0-bcmath \
-    php8.0-xdebug
+    php8.0-xdebug \
+    php8.0-dev
+
+RUN pecl install swoole
 
 RUN mkdir -p /run/php-fpm/
 
