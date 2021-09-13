@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /var/www
@@ -9,6 +9,12 @@ RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo UTC > /etc/timezone
 # Install server dependencies
 RUN apt-get update && \
     apt install -y \
+    gcc \
+    openssl \
+    libssl-dev \
+    libcurl4-openssl-dev \
+    libpcre3-dev \
+    build-essential \
     curl \
     wget \
     gnupg2 \
