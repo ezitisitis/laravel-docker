@@ -56,8 +56,6 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.0-xdebug \
     php8.0-dev
 
-RUN pecl install swoole
-
 RUN mkdir -p /run/php-fpm/
 
 # Supress composer root warning
