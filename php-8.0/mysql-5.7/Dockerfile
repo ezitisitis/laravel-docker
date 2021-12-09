@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /var/www
@@ -26,7 +26,7 @@ RUN apt-get update && \
 RUN apt install software-properties-common && \
     add-apt-repository ppa:ondrej/php
 
-# Install git, php, e.t.c.
+# Install git, 
 RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     openssh-client \
     rsync \
@@ -37,7 +37,10 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     gpg-agent \
     curl \
     gnupg \
-    ca-certificates \
+    php-pear
+
+# Installing php and extensions
+RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.0-cli \
     php8.0-curl \
     php8.0-dom \
@@ -54,7 +57,12 @@ RUN apt-get update -qq && apt-get install --no-install-recommends -y \
     php8.0-zip \
     php8.0-bcmath \
     php8.0-xdebug \
-    php8.0-dev
+    php8.0-dev 
+
+RUN pecl channel-update https://pecl.php.net/channel.xml \
+    && pecl install swoole \
+    && pecl clear-cache \
+    && rm -rf /tmp/* /var/tmp/*
 
 RUN mkdir -p /run/php-fpm/
 
