@@ -78,8 +78,8 @@ ENTRYPOINT ["/usr/local/bin/bootstrap"]
 
 FROM latest AS development
 
-RUN apt-get update \
-RUN apt-get install -y php8.1-xdebug
+RUN apt-get update && \
+    apt-get install -y php8.1-xdebug
 RUN echo "[xdebug]" > /etc/php/8.1/cli/conf.d/20-xdebug.ini; \
     echo "zend_extension=xdebug.so" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini; \
     echo "xdebug.mode=coverage" >> /etc/php/8.1/cli/conf.d/20-xdebug.ini
