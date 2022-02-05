@@ -86,8 +86,7 @@ RUN echo "[xdebug]" > /etc/php/8.1/cli/conf.d/20-xdebug.ini; \
 
 COPY scripts/development.bash /usr/local/bin/bootstrap
 COPY configs/development/php.ini /etc/php/8.1/cli/conf.d/99-app.ini
-COPY configs/php-fpm-pool.conf /etc/php/8.1/fpm/pool.d/www.conf
-RUN chmod +x /usr/local/bin/app.bootstrap
+RUN chmod +x /usr/local/bin/bootstrap
 
 ENTRYPOINT ["/usr/local/bin/bootstrap"]
 
@@ -102,9 +101,7 @@ RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY scripts/npm.bash /usr/local/bin/bootstrap
-COPY configs/php.ini /etc/php/8.1/cli/conf.d/99-app.ini
-COPY configs/php-fpm-pool.conf /etc/php/8.1/fpm/pool.d/www.conf
-RUN chmod +x /usr/local/bin/app.bootstrap
+RUN chmod +x /usr/local/bin/bootstrap
 
 ENTRYPOINT ["/usr/local/bin/bootstrap"]
 
@@ -119,8 +116,6 @@ RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY scripts/npm-dev.bash /usr/local/bin/bootstrap
-COPY configs/development/php.ini /etc/php/8.1/cli/conf.d/99-app.ini
-COPY configs/php-fpm-pool.conf /etc/php/8.1/fpm/pool.d/www.conf
-RUN chmod +x /usr/local/bin/app.bootstrap
+RUN chmod +x /usr/local/bin/bootstrap
 
 ENTRYPOINT ["/usr/local/bin/bootstrap"]
