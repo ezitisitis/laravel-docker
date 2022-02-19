@@ -1,0 +1,40 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: install buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+      - name: build latest image
+        run: |
+          docker buildx build \
+            --tag ezitisitis/laravel:latest \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 .
+      - name: build development image
+        run: |
+          docker buildx build \
+            --tag ezitisitis/laravel:development \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 .
+            --file=Dockerfile.development
+      - name: build npm image
+        run: |
+          docker buildx build \
+            --tag ezitisitis/laravel:npm \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 .
+            --file=Dockerfile.npm
+      - name: build npm-development image
+        run: |
+          docker buildx build \
+            --tag ezitisitis/laravel:npm-development \
+            --platform linux/amd64,linux/arm/v7,linux/arm64 .
+            --file=Dockerfile.development-npm
