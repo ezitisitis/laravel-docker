@@ -21,22 +21,22 @@ jobs:
         run: |
           docker buildx build --push \
             --tag ezitisitis/laravel:latest \
-            --platform linux/amd64,linux/arm64 .
+            --platform linux/amd64,linux/arm/v7,linux/arm64/v8 .
       - name: build development image
         run: |
           docker buildx build --push \
             --tag ezitisitis/laravel:development \
-            --platform linux/amd64,linux/arm64 . \
+            --platform linux/amd64,linux/arm/v7,linux/arm64/v8 . \
             --file=Dockerfile.development
       - name: build npm image
         run: |
           docker buildx build --push \
             --tag ezitisitis/laravel:npm \
-            --platform linux/amd64,linux/arm64 . \
+            --platform linux/amd64,linux/arm/v7,linux/arm64/v8 . \
             --file=Dockerfile.npm
       - name: build npm-development image
         run: |
           docker buildx build --push \
             --tag ezitisitis/laravel:npm-development \
-            --platform linux/amd64,linux/arm64 . \
+            --platform linux/amd64,linux/arm/v7,linux/arm64/v8 . \
             --file=Dockerfile.development-npm
