@@ -1,5 +1,7 @@
 # Laravel Docker
 
+[![Docker Image CI](https://github.com/ezitisitis/laravel-docker/actions/workflows/docker-image-ci.yml/badge.svg)](https://github.com/ezitisitis/laravel-docker/actions/workflows/docker-image-ci.yml)
+
 This repository contains Docker files for Laravel projects.
 
 ## Links
