@@ -66,7 +66,7 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.1
+RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.2
 
 COPY scripts/latest.bash /usr/local/bin/bootstrap
 COPY configs/php.ini /etc/php/8.2/cli/conf.d/99-app.ini
