@@ -11,3 +11,7 @@ This repository contains Docker files for Laravel projects.
 
 [github_docker_laravel_issues]: https://github.com/ezitisitis/laravel-docker/issues
 [github_docker_compose_repository]: https://github.com/ezitisitis/docker-compose-laravel
+
+## Credits
+
+- [Marks Bogdanovs](https://www.ezitisitis.com)
